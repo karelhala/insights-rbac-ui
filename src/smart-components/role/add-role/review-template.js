@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Bullseye, Spinner, Text, TextContent, Title } from '@patternfly/react-core';
+import { Bullseye, Spinner, Content, Title } from '@patternfly/react-core';
 import { AddRoleWizardContext } from './add-role-wizard';
 import { asyncValidator } from './validators';
 import './review.scss';
@@ -43,9 +43,9 @@ const ReviewTemplate = ({ formFields }) => {
       <Title headingLevel="h1" size="xl" className="pf-v5-u-mb-sm">
         {intl.formatMessage(messages.reviewDetails)}
       </Title>
-      <TextContent className="pf-v5-u-mb-md">
-        <Text>{intl.formatMessage(messages.reviewRoleDetails)}</Text>
-      </TextContent>
+      <Content className="pf-v5-u-mb-md">
+        <Content component="p">{intl.formatMessage(messages.reviewRoleDetails)}</Content>
+      </Content>
       {formFields?.[0]?.[0]}
     </div>
   );

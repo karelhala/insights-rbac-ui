@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import useFieldApi from '@data-driven-forms/react-form-renderer/use-field-api';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
-import { FormGroup, Stack, StackItem, Text, TextContent } from '@patternfly/react-core';
+import { FormGroup, Stack, StackItem, Content } from '@patternfly/react-core';
 import RolesList from './roles-list';
 import { useIntl } from 'react-intl';
 import messages from '../../../Messages';
@@ -27,9 +27,9 @@ const SetRoles = (props) => {
     <Fragment>
       <Stack hasGutter>
         <StackItem>
-          <TextContent>
-            <Text>{intl.formatMessage(messages.selectRolesForGroupText)}</Text>
-          </TextContent>
+          <Content>
+            <Content component="p">{intl.formatMessage(messages.selectRolesForGroupText)}</Content>
+          </Content>
         </StackItem>
         <StackItem>
           <FormGroup fieldId="select-role">

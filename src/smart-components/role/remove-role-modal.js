@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { FormattedMessage, useIntl } from 'react-intl';
 import WarningModal from '@patternfly/react-component-groups/dist/dynamic/WarningModal';
-import { Text, TextContent, TextVariants, ButtonVariant } from '@patternfly/react-core';
+import { Content, ContentVariants, ButtonVariant } from '@patternfly/react-core';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux';
 import { removeRole } from '../../redux/actions/role-actions';
 import { fetchRole } from '../../helpers/role/role-helper';
@@ -58,8 +58,8 @@ const RemoveRoleModal = ({ cancelRoute, submitRoute = cancelRoute, afterSubmit, 
       confirmButtonLabel={intl.formatMessage(messages.deleteRole)}
       confirmButtonVariant={ButtonVariant.danger}
     >
-      <TextContent>
-        <Text component={TextVariants.p}>
+      <Content>
+        <Content component={ContentVariants.p}>
           <FormattedMessage
             {...messages.roleWilBeRemovedWithPermissions}
             values={{
@@ -68,8 +68,8 @@ const RemoveRoleModal = ({ cancelRoute, submitRoute = cancelRoute, afterSubmit, 
               count: roles.length,
             }}
           />
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
     </WarningModal>
   );
 };

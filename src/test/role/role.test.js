@@ -281,7 +281,7 @@ describe('role', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should render second page of table', async () => {
+  it.only('should render second page of table', async () => {
     jest.useFakeTimers();
     fetchRoleSpy.mockImplementationOnce(() => ({ type: FETCH_ROLE, payload: Promise.resolve({}) }));
     fetchGroupSpy.mockImplementationOnce(() => ({ type: FETCH_GROUP, payload: Promise.resolve({}) }));

@@ -1,5 +1,5 @@
-import ContentHeader from '@patternfly/react-component-groups/dist/esm/ContentHeader';
-import { PageSection, PageSectionVariants, Spinner } from '@patternfly/react-core';
+import PageHeader from '@patternfly/react-component-groups/dist/esm/PageHeader';
+import { PageSection, Spinner } from '@patternfly/react-core';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import Messages from '../../../../../Messages';
@@ -11,7 +11,6 @@ import { addGroup, fetchGroup, fetchGroups, updateGroup } from '../../../../../r
 import { RBACStore } from '../../../../../redux/store';
 import { useNavigate, useParams } from 'react-router-dom';
 import { EditGroupUsersAndServiceAccounts } from './EditUserGroupUsersAndServiceAccounts';
-import RbacBreadcrumbs from '../../../../../presentational-components/shared/breadcrumbs';
 import { mergeToBasename } from '../../../../../presentational-components/shared/AppLink';
 import pathnames from '../../../../../utilities/pathnames';
 
@@ -161,10 +160,10 @@ export const EditUserGroup: React.FunctionComponent<EditUserGroupProps> = ({ cre
   return (
     <React.Fragment>
       <section className="pf-v5-c-page__main-breadcrumb">
-        <RbacBreadcrumbs {...breadcrumbsList} />
+        <PageHeader data-codemods title="" subtitle="" {...breadcrumbsList} />
       </section>
-      <ContentHeader title={pageTitle} />
-      <PageSection data-ouia-component-id="edit-user-group-form" className="pf-v5-u-m-lg-on-lg" variant={PageSectionVariants.light} isWidthLimited>
+      <PageHeader title={pageTitle} subtitle={''} />
+      <PageSection data-ouia-component-id="edit-user-group-form" className="pf-v5-u-m-lg-on-lg" isWidthLimited>
         {isLoading || !initialFormData ? (
           <div style={{ textAlign: 'center' }}>
             <Spinner />

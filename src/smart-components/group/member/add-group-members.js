@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { useFlag } from '@unleash/proxy-client-react';
-import { Button, Modal, ModalVariant, StackItem, Stack, TextContent } from '@patternfly/react-core';
+import { Button, StackItem, Stack, Content } from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { addMembersToGroup, fetchMembersForGroup, fetchGroups } from '../../../redux/actions/group-actions';
@@ -83,9 +84,9 @@ const AddGroupMembers = ({ cancelRoute }) => {
     >
       <Stack hasGutter>
         <StackItem>
-          <TextContent>
+          <Content>
             <ActiveUser {...activeUserProps} />
-          </TextContent>
+          </Content>
         </StackItem>
         <StackItem>{isITLess ? <UsersListItless {...usersListProps} /> : <UsersList {...usersListProps} />}</StackItem>
       </Stack>

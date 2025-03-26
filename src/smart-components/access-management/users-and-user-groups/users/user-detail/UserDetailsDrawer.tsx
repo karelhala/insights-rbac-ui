@@ -13,8 +13,7 @@ import {
   Tab,
   TabTitleText,
   Tabs,
-  Text,
-  TextContent,
+  Content,
   Title,
 } from '@patternfly/react-core';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
@@ -41,9 +40,9 @@ const UserDetailsDrawerContent: React.FunctionComponent<UserDetailsProps> = ({ f
         <Title headingLevel="h2">
           <span tabIndex={focusedUser ? 0 : -1} ref={drawerRef}>{`${focusedUser?.first_name} ${focusedUser?.last_name}`}</span>
         </Title>
-        <TextContent>
-          <Text>{focusedUser?.email}</Text>
-        </TextContent>
+        <Content>
+          <Content component="p">{focusedUser?.email}</Content>
+        </Content>
         <DrawerActions>
           <DrawerCloseButton onClick={onClose} />
         </DrawerActions>

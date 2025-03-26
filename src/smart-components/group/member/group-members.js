@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect, useContext, useRef, Suspense } fr
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { Outlet, useParams } from 'react-router-dom';
-import { Button, Card, CardBody, Text, TextVariants, Bullseye, TextContent, ButtonVariant } from '@patternfly/react-core';
+import { Button, Card, CardBody, Content, ContentVariants, Bullseye, ButtonVariant } from '@patternfly/react-core';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import Section from '@redhat-cloud-services/frontend-components/Section';
 import { TableToolbarView } from '../../../presentational-components/shared/table-toolbar-view';
@@ -175,11 +175,11 @@ const GroupMembers = () => {
           <Card>
             <CardBody>
               <Bullseye>
-                <TextContent>
-                  <Text component={TextVariants.h1}>
+                <Content>
+                  <Content component={ContentVariants.h1}>
                     {intl.formatMessage(adminDefault ? messages.allOrgAdminsAreMembers : messages.allUsersAreMembers)}
-                  </Text>
-                </TextContent>
+                  </Content>
+                </Content>
               </Bullseye>
             </CardBody>
           </Card>

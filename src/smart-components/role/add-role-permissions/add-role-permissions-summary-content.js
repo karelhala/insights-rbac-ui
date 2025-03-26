@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, GridItem, Stack, StackItem, Text, TextContent, TextVariants, Title } from '@patternfly/react-core';
+import { Grid, GridItem, Stack, StackItem, Content, ContentVariants, Title } from '@patternfly/react-core';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
 import { useIntl } from 'react-intl';
 import messages from '../../../Messages';
@@ -18,53 +18,63 @@ const AddRolePermissionSummaryContent = () => {
   return (
     <Stack hasGutter>
       <StackItem>
-        <TextContent>
+        <Content>
           <Title headingLevel="h1" size="xl" className="pf-v5-u-mb-sm">
             {intl.formatMessage(messages.reviewDetails)}
           </Title>
-        </TextContent>
+        </Content>
       </StackItem>
       <StackItem className="rbac-l-stack__item-summary">
         <Grid hasGutter>
           <GridItem span={3}>
-            <Text className="pf-v5-c-title" component={TextVariants.h6}>
+            <Content className="pf-v5-c-title" component={ContentVariants.h6}>
               {intl.formatMessage(messages.roleName)}
-            </Text>
+            </Content>
           </GridItem>
           <GridItem span={9}>
-            <Text component={TextVariants.p}>{name}</Text>
+            <Content component={ContentVariants.p}>{name}</Content>
           </GridItem>
           <GridItem span={3}>
-            <Text className="pf-v5-c-title" component={TextVariants.h6}>
+            <Content className="pf-v5-c-title" component={ContentVariants.h6}>
               {intl.formatMessage(messages.roleDescription)}
-            </Text>
+            </Content>
           </GridItem>
           <GridItem span={9}>
-            <Text component={TextVariants.p}>{description}</Text>
+            <Content component={ContentVariants.p}>{description}</Content>
           </GridItem>
           <GridItem span={3}>
-            <Text className="pf-v5-c-title" component={TextVariants.h6}>
+            <Content className="pf-v5-c-title" component={ContentVariants.h6}>
               {intl.formatMessage(messages.addedPermissions)}
-            </Text>
+            </Content>
           </GridItem>
           <GridItem span={9}>
-            <TextContent component={TextVariants.p}>
+            <Content component={ContentVariants.p}>
               {selectedPermissions.map((permission, index) => (
-                <Text key={index}> {permission.uuid} </Text>
+                <Content component="p" key={index}>
+                  {' '}
+                  {permission.uuid}{' '}
+                </Content>
               ))}
-            </TextContent>
+            </Content>
           </GridItem>
           {hasCostResources && (
             <React.Fragment>
               <GridItem span={3}>
-                <Text className="pf-v5-c-title" component={TextVariants.h6}>
+                <Content className="pf-v5-c-title" component={ContentVariants.h6}>
                   {intl.formatMessage(messages.resourceDefinitions)}
-                </Text>
+                </Content>
               </GridItem>
               <GridItem span={9}>
-                <TextContent component={TextVariants.p}>
-                  {resourceDefinitions.map(({ resources }) => resources.map((resource, index) => <Text key={index}> {resource} </Text>))}
-                </TextContent>
+                <Content component={ContentVariants.p}>
+                  {resourceDefinitions.map(({ resources }) =>
+                    resources.map((resource, index) => (
+                      <Content component="p" key={index}>
+                        {' '}
+                        {resource}{' '}
+                      </Content>
+                    ))
+                  )}
+                </Content>
               </GridItem>
             </React.Fragment>
           )}

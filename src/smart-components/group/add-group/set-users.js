@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useFlag } from '@unleash/proxy-client-react';
-import { Form, FormGroup, Stack, StackItem, TextContent } from '@patternfly/react-core';
+import { Form, FormGroup, Stack, StackItem, Content } from '@patternfly/react-core';
 import useFieldApi from '@data-driven-forms/react-form-renderer/use-field-api';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
 import UsersList from './users-list';
@@ -42,9 +42,9 @@ const SetUsers = (props) => {
       <Form>
         <Stack hasGutter>
           <StackItem>
-            <TextContent>
+            <Content>
               <ActiveUser {...activeUserProps} />
-            </TextContent>
+            </Content>
           </StackItem>
           <StackItem>
             <FormGroup fieldId="select-user">{isITLess ? <UsersListItless {...usersListProps} /> : <UsersList {...usersListProps} />}</FormGroup>

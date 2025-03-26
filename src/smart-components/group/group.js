@@ -4,8 +4,18 @@ import { useLocation, useParams, Outlet, useNavigationType } from 'react-router-
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
-import { Alert, AlertActionCloseButton, Popover, PopoverPosition, Split, SplitItem, Button } from '@patternfly/react-core';
-import { DropdownItem, Dropdown, KebabToggle } from '@patternfly/react-core/deprecated';
+import {
+  Alert,
+  AlertActionCloseButton,
+  Popover,
+  PopoverPosition,
+  Split,
+  SplitItem,
+  Button,
+  DropdownItem,
+  Dropdown,
+  MenuToggle,
+} from '@patternfly/react-core';
 import WarningModal from '@patternfly/react-component-groups/dist/dynamic/WarningModal';
 import SkeletonTable from '@patternfly/react-component-groups/dist/esm/SkeletonTable';
 import AppTabs from '../app-tabs/app-tabs';
@@ -211,7 +221,7 @@ const Group = () => {
                 {group.platform_default || group.admin_default ? null : (
                   <Dropdown
                     ouiaId="group-title-actions-dropdown"
-                    toggle={<KebabToggle onToggle={(_event, isOpen) => setDropdownOpen(isOpen)} id="group-actions-dropdown" />}
+                    toggle={<MenuToggle variant="plain" onToggle={(_event, isOpen) => setDropdownOpen(isOpen)} id="group-actions-dropdown" />}
                     isOpen={isDropdownOpen}
                     isPlain
                     position="right"

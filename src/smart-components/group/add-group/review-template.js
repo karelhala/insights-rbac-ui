@@ -2,18 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
-import {
-  Bullseye,
-  Button,
-  ButtonVariant,
-  EmptyState,
-  EmptyStateHeader,
-  EmptyStateIcon,
-  EmptyStateVariant,
-  Progress,
-  Spinner,
-  Title,
-} from '@patternfly/react-core';
+import { Bullseye, Button, ButtonVariant, EmptyState, EmptyStateVariant, Progress, Spinner, Title } from '@patternfly/react-core';
 import { InProgressIcon } from '@patternfly/react-icons';
 import { AddGroupWizardContext } from './add-group-wizard';
 import { asyncValidator } from '../validators';
@@ -46,12 +35,14 @@ const ReviewTemplate = ({ formFields }) => {
   if (submittingServiceAccounts && !error) {
     const value = submittingGroup ? 1 : submittingServiceAccounts ? 2 : 3;
     return (
-      <EmptyState variant={EmptyStateVariant.lg} data-component-ouia-id="wizard-progress" className="rbac-add-group-progress">
-        <EmptyStateHeader
-          titleText={intl.formatMessage(messages.groupBeingCreated)}
-          icon={<EmptyStateIcon className="pf-v5-u-mt-xl" icon={InProgressIcon} />}
-          headingLevel="h4"
-        />
+      <EmptyState
+        headingLevel="h4"
+        icon={InProgressIcon}
+        titleText={intl.formatMessage(messages.groupBeingCreated)}
+        variant={EmptyStateVariant.lg}
+        data-component-ouia-id="wizard-progress"
+        className="rbac-add-group-progress"
+      >
         <Progress
           className="pf-v5-u-mt-lg"
           style={{ textAlign: 'left' }}

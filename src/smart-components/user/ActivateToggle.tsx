@@ -15,8 +15,7 @@ const ActivateToggle: React.FC<{
       key={user.uuid}
       isChecked={user.is_active}
       onChange={(e, value) => handleToggle(e, value, [user])}
-      label={intl.formatMessage(messages['usersAndUserGroupsActive'])}
-      labelOff={intl.formatMessage(messages['usersAndUserGroupsInactive'])}
+      label={user.is_active ? intl.formatMessage(messages['usersAndUserGroupsActive']) : intl.formatMessage(messages['usersAndUserGroupsInactive'])}
     ></Switch>
   ) : (
     <></>

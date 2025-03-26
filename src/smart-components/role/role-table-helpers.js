@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import DateFormat from '@redhat-cloud-services/frontend-components/DateFormat';
-import { Text } from '@patternfly/react-core';
+import { Content } from '@patternfly/react-core';
 import { TableVariant } from '@patternfly/react-table';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table/deprecated';
 import AppLink from '../../presentational-components/shared/AppLink';
@@ -68,7 +68,9 @@ export const createRows = (data, selectedRows, intl, expanded, adminGroup) =>
                   <TableBody />
                 </Table>
               ) : (
-                <Text className="pf-v5-u-mx-lg pf-v5-u-my-sm">{intl.formatMessage(messages.noGroups)}</Text>
+                <Content component="p" className="pf-v5-u-mx-lg pf-v5-u-my-sm">
+                  {intl.formatMessage(messages.noGroups)}
+                </Content>
               ),
           },
         ],
@@ -112,7 +114,9 @@ export const createRows = (data, selectedRows, intl, expanded, adminGroup) =>
                   <TableBody />
                 </Table>
               ) : (
-                <Text className="pf-v5-u-mx-lg pf-v5-u-my-sm">{intl.formatMessage(messages.noPermissions)}</Text>
+                <Content component="p" className="pf-v5-u-mx-lg pf-v5-u-my-sm">
+                  {intl.formatMessage(messages.noPermissions)}
+                </Content>
               ),
           },
         ],

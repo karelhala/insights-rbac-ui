@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Chip, ChipGroup, Text, TextContent, Title, Button, Popover, Alert, AlertActionCloseButton } from '@patternfly/react-core';
+import { Label, LabelGroup, Content, Title, Button, Popover, Alert, AlertActionCloseButton } from '@patternfly/react-core';
+
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
 import QuestionCircleIcon from '@patternfly/react-icons/dist/js/icons/outlined-question-circle-icon';
 import { useIntl } from 'react-intl';
@@ -22,36 +23,42 @@ const AddPermissionTemplate = ({ formFields }) => {
     <div className="rbac">
       {selectedPermissions.length > 0 ? (
         <div className="rbac-c-selected-chips">
-          <ChipGroup categoryName={intl.formatMessage(messages.selectedPermissions)}>
+          <LabelGroup categoryName={intl.formatMessage(messages.selectedPermissions)}>
             {/* immutable reverse */}
             {selectedPermissions
               .reduce((acc, i) => [i, ...acc], [])
               .map(({ uuid }) => (
-                <Chip key={uuid} color="blue" isTruncated onClick={() => setSelectedPermissions(selectedPermissions.filter((p) => p.uuid !== uuid))}>
+                <Label
+                  variant="outline"
+                  key={uuid}
+                  color="blue"
+                  isTruncated
+                  onClose={() => setSelectedPermissions(selectedPermissions.filter((p) => p.uuid !== uuid))}
+                >
                   {uuid}
-                </Chip>
+                </Label>
               ))}
-          </ChipGroup>
+          </LabelGroup>
         </div>
       ) : null}
       <Title headingLevel="h1" size="xl" className="rbac-c-add-permission-title">
         {intl.formatMessage(messages.addPermissions)}
       </Title>
-      <TextContent>
-        <Text>
+      <Content>
+        <Content component="p">
           {intl.formatMessage(messages.selectPermissionsForRole)}
           {unresolvedSplats.length !== 0 && (
             <Popover
               headerContent={intl.formatMessage(messages.onlyGranularPermissions)}
               bodyContent={intl.formatMessage(messages.noWildcardPermissions)}
             >
-              <Button variant="link">
-                {intl.formatMessage(messages.whyNotSeeingAllPermissions)} <QuestionCircleIcon />
+              <Button icon={<QuestionCircleIcon />} variant="link">
+                {intl.formatMessage(messages.whyNotSeeingAllPermissions)}
               </Button>
             </Popover>
           )}
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
       {notAllowedBasePermissions?.length > 0 && !alertClosed ? (
         <Alert
           variant="custom"

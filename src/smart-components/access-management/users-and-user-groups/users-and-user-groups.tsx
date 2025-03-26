@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import { Outlet, useLocation } from 'react-router-dom';
-import { PageSection, PageSectionVariants, Tab, Tabs } from '@patternfly/react-core';
-import ContentHeader from '@patternfly/react-component-groups/dist/dynamic/ContentHeader';
+import { PageSection, Tab, Tabs } from '@patternfly/react-core';
+import PageHeader from '@patternfly/react-component-groups/dist/dynamic/PageHeader';
 import useAppNavigate from '../../../hooks/useAppNavigate';
 import pathnames from '../../../utilities/pathnames';
 import Messages from '../../../Messages';
@@ -29,8 +29,12 @@ const UsersAndUserGroups: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <ContentHeader title={intl.formatMessage(Messages.usersAndUserGroups)} subtitle={intl.formatMessage(Messages.usersAndUserGroupsDescription)} />
-      <PageSection type="tabs" variant={PageSectionVariants.light} isWidthLimited>
+      <PageHeader
+        data-codemods
+        title={intl.formatMessage(Messages.usersAndUserGroups)}
+        subtitle={intl.formatMessage(Messages.usersAndUserGroupsDescription)}
+      />
+      <PageSection hasBodyWrapper type="tabs" isWidthLimited>
         <Tabs
           activeKey={activeTabIndex}
           onSelect={handleTabSelect}
@@ -51,7 +55,7 @@ const UsersAndUserGroups: React.FunctionComponent = () => {
           />
         </Tabs>
       </PageSection>
-      <PageSection padding={{ default: 'noPadding' }}>
+      <PageSection hasBodyWrapper={false} padding={{ default: 'noPadding' }}>
         <Outlet
           context={{
             [pathnames['users-new'].path]: {

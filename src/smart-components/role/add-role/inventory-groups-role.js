@@ -1,10 +1,12 @@
 import React, { useEffect, useReducer } from 'react';
 import {
+  Label,
+  LabelGroup,
   Button,
   Grid,
   GridItem,
-  Text,
-  TextVariants,
+  Content,
+  ContentVariants,
   FormGroup,
   Tooltip,
   Divider,
@@ -17,9 +19,8 @@ import {
   Select,
   Spinner,
   Badge,
-  Chip,
-  ChipGroup,
 } from '@patternfly/react-core';
+
 import { TimesIcon } from '@patternfly/react-icons';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import useFieldApi from '@data-driven-forms/react-form-renderer/use-field-api';
@@ -207,24 +208,26 @@ const InventoryGroupsRole = (props) => {
             isExpanded={state[permissionID].isOpen}
           >
             {state[permissionID].selected.length > 0 ? (
-              <ChipGroup aria-label="Current selections">
-                <Chip
+              <LabelGroup aria-label="Current selections">
+                <Label
+                  variant="outline"
                   closeBtnAriaLabel="Clear all"
-                  badge={<Badge isRead>{state[permissionID].selected.length}</Badge>}
-                  onClick={(ev) => {
+                  onClose={(ev) => {
                     ev.stopPropagation();
                     clearSelection(permissionID);
                   }}
                 >
                   selected
-                </Chip>
-              </ChipGroup>
+                  <Badge isRead>{state[permissionID].selected.length}</Badge>
+                </Label>
+              </LabelGroup>
             ) : null}
           </TextInputGroupMain>
 
           <TextInputGroupUtilities>
             {state[permissionID].filterValue.length > 0 && (
               <Button
+                icon={<TimesIcon aria-hidden />}
                 variant="plain"
                 aria-label="Clear input value"
                 onClick={(e) => {
@@ -232,9 +235,7 @@ const InventoryGroupsRole = (props) => {
                   e.preventDefault();
                   onTextInputChange(e, '', permissionID);
                 }}
-              >
-                <TimesIcon aria-hidden />
-              </Button>
+              />
             )}
           </TextInputGroupUtilities>
         </TextInputGroup>
@@ -328,14 +329,14 @@ const InventoryGroupsRole = (props) => {
   return (
     <Grid hasGutter>
       <GridItem md={3} className="rbac-m-hide-on-sm">
-        <Text component={TextVariants.h4} className="rbac-bold-text pf-v5-u-mt-sm">
+        <Content component={ContentVariants.h4} className="rbac-bold-text pf-v5-u-mt-sm">
           {intl.formatMessage(messages.permissions)}
-        </Text>
+        </Content>
       </GridItem>
       <GridItem lg={9} md={6} className="rbac-m-hide-on-sm">
-        <Text component={TextVariants.h4} className="rbac-bold-text pf-v5-u-mt-sm">
+        <Content component={ContentVariants.h4} className="rbac-bold-text pf-v5-u-mt-sm">
           {intl.formatMessage(enableWorkspacesNameChange ? messages.workspacesDefinition : messages.groupDefinition)}
-        </Text>
+        </Content>
       </GridItem>
       {permissions.map(makeRow)}
     </Grid>

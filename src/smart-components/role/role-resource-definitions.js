@@ -1,5 +1,5 @@
 import React, { Fragment, Suspense, useEffect, useMemo, useState } from 'react';
-import { TextContent, Text, TextVariants, Level, LevelItem, Button } from '@patternfly/react-core';
+import { Content, ContentVariants, Level, LevelItem, Button } from '@patternfly/react-core';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { useParams, Outlet } from 'react-router-dom';
 import { TableToolbarView } from '../../presentational-components/shared/table-toolbar-view';
@@ -122,9 +122,9 @@ const ResourceDefinitions = () => {
         </Level>
       </TopToolbar>
       <section className="pf-v5-c-page__main-section rbac-c-role__permissions">
-        <TextContent>
-          <Text component={TextVariants.h1}>{intl.formatMessage(messages.definedResources)}</Text>
-        </TextContent>
+        <Content>
+          <Content component={ContentVariants.h1}>{intl.formatMessage(messages.definedResources)}</Content>
+        </Content>
         <TableToolbarView
           columns={[{}]}
           rows={createRows(data, permissionId, intl)}

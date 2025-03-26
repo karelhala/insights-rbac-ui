@@ -84,10 +84,10 @@ describe('<AddGroupRoles />', () => {
 
     const expectedPayload = [
       expect.objectContaining({
-        type: 'FETCH_GROUP',
+        type: 'FETCH_GROUPS',
       }),
       expect.objectContaining({
-        type: 'FETCH_GROUPS',
+        type: 'FETCH_GROUP',
       }),
       expect.objectContaining({
         type: '@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION',
@@ -126,10 +126,10 @@ describe('<AddGroupRoles />', () => {
 
     const expectedPayload = [
       expect.objectContaining({
-        type: 'FETCH_GROUP',
+        type: 'FETCH_GROUPS',
       }),
       expect.objectContaining({
-        type: 'FETCH_GROUPS',
+        type: 'FETCH_GROUP',
       }),
       expect.objectContaining({
         type: '@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION',
@@ -164,10 +164,10 @@ describe('<AddGroupRoles />', () => {
 
     const expectedPayload = [
       expect.objectContaining({
-        type: 'FETCH_GROUP',
+        type: 'FETCH_GROUPS',
       }),
       expect.objectContaining({
-        type: 'FETCH_GROUPS',
+        type: 'FETCH_GROUP',
       }),
     ];
 
@@ -214,10 +214,10 @@ describe('<AddGroupRoles />', () => {
 
     const expectedPayload = [
       expect.objectContaining({
-        type: 'FETCH_GROUP',
+        type: 'FETCH_GROUPS',
       }),
       expect.objectContaining({
-        type: 'FETCH_GROUPS',
+        type: 'FETCH_GROUP',
       }),
       expect.objectContaining({
         type: 'INVALIDATE_SYSTEM_GROUP',
@@ -260,10 +260,10 @@ describe('<AddGroupRoles />', () => {
     };
     const expectedPayload = [
       expect.objectContaining({
-        type: 'FETCH_GROUP',
+        type: 'FETCH_GROUPS',
       }),
       expect.objectContaining({
-        type: 'FETCH_GROUPS',
+        type: 'FETCH_GROUP',
       }),
       expect.objectContaining({
         type: '@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION',

@@ -115,7 +115,7 @@ describe('<MUAAccessTable />', () => {
     });
     expect(
       screen.getByText('Resource definitions', {
-        selector: '.pf-v5-c-modal-box__title-text',
+        selector: '.pf-v6-c-modal-box__title-text',
       })
     ).toBeInTheDocument();
 
@@ -124,7 +124,7 @@ describe('<MUAAccessTable />', () => {
     });
     expect(() =>
       screen.getByText('Resource definitions', {
-        selector: '.pf-v5-c-modal-box__title-text',
+        selector: '.pf-v6-c-modal-box__title-text',
       })
     ).toThrow();
   });

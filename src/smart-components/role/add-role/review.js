@@ -1,6 +1,6 @@
 import React from 'react';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
-import { Stack, StackItem, Grid, GridItem, Text, TextVariants } from '@patternfly/react-core';
+import { Stack, StackItem, Grid, GridItem, Content, ContentVariants } from '@patternfly/react-core';
 import { useIntl } from 'react-intl';
 import messages from '../../../Messages';
 import './review.scss';
@@ -61,29 +61,29 @@ const ReviewStep = () => {
         <StackItem className="rbac-l-stack__item-summary">
           <Grid>
             <GridItem sm={12} md={2}>
-              <Text component={TextVariants.h4} className="rbac-bold-text">
+              <Content component={ContentVariants.h4} className="rbac-bold-text">
                 {intl.formatMessage(messages.name)}
-              </Text>
+              </Content>
             </GridItem>
             <GridItem sm={12} md={10}>
-              <Text component={TextVariants.p}>{type === 'create' ? name : copyName}</Text>
+              <Content component={ContentVariants.p}>{type === 'create' ? name : copyName}</Content>
             </GridItem>
           </Grid>
           <Grid>
             <GridItem sm={12} md={2}>
-              <Text component={TextVariants.h4} className="rbac-bold-text">
+              <Content component={ContentVariants.h4} className="rbac-bold-text">
                 {intl.formatMessage(messages.description)}
-              </Text>
+              </Content>
             </GridItem>
             <GridItem sm={12} md={10}>
-              <Text component={TextVariants.p}>{type === 'create' ? description : copyDescription}</Text>
+              <Content component={ContentVariants.p}>{type === 'create' ? description : copyDescription}</Content>
             </GridItem>
           </Grid>
           <Grid>
             <GridItem sm={12} md={2}>
-              <Text component={TextVariants.h4} className="rbac-bold-text">
+              <Content component={ContentVariants.h4} className="rbac-bold-text">
                 {intl.formatMessage(messages.permissions)}
-              </Text>
+              </Content>
             </GridItem>
             <GridItem sm={12} md={10}>
               {stickyTable(columns, rows)}
@@ -92,9 +92,9 @@ const ReviewStep = () => {
           {inventoryGroupPermissions && (
             <Grid>
               <GridItem sm={12} md={2}>
-                <Text component={TextVariants.h4} className="rbac-bold-text">
+                <Content component={ContentVariants.h4} className="rbac-bold-text">
                   {intl.formatMessage(messages.resourceDefinitions)}
-                </Text>
+                </Content>
               </GridItem>
               <GridItem sm={12} md={10}>
                 {stickyTable(
@@ -110,9 +110,9 @@ const ReviewStep = () => {
           {hasCostResources && (
             <Grid>
               <GridItem sm={12} md={2}>
-                <Text component={TextVariants.h4} className="rbac-bold-text">
+                <Content component={ContentVariants.h4} className="rbac-bold-text">
                   {intl.formatMessage(messages.resourceDefinitions)}
-                </Text>
+                </Content>
               </GridItem>
               <GridItem sm={12} md={10}>
                 {stickyTable([intl.formatMessage(messages.permission), intl.formatMessage(messages.resourceDefinitions)], resourceDefinitionsRows)}

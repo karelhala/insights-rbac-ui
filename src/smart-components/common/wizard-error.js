@@ -12,8 +12,8 @@ const WizardError = ({ context, title, text, customFooter }) => {
   const { setWizardError } = useContext(context);
   return (
     <ErrorState
-      errorTitle={title}
-      errorDescription={text}
+      titleText={title}
+      bodyText={text}
       customFooter={
         customFooter || (
           <Button

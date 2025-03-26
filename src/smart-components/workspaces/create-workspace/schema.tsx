@@ -7,7 +7,7 @@ import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import { Workspace } from '../../../redux/reducers/workspaces-reducer';
 import providerMessages from '../../../locales/data.json';
 import messages from '../../../Messages';
-import { Button, Text } from '@patternfly/react-core';
+import { Button, Content } from '@patternfly/react-core';
 
 // hardcoded for now
 export const BUNDLES = [
@@ -82,7 +82,7 @@ export const schemaBuilder = (enableBillingFeatures: boolean) => {
                   labelIcon: (
                     <InputHelpPopover
                       bodyContent={
-                        <Text>
+                        <Content component="p">
                           <FormattedMessage
                             id={messages.workspaceNamingGuidelines.id}
                             defaultMessage={messages.workspaceNamingGuidelines.defaultMessage}
@@ -94,7 +94,7 @@ export const schemaBuilder = (enableBillingFeatures: boolean) => {
                               ),
                             }}
                           />
-                        </Text>
+                        </Content>
                       }
                       field="workspace name"
                     />
@@ -145,7 +145,7 @@ export const schemaBuilder = (enableBillingFeatures: boolean) => {
                 FormGroupProps: {
                   labelIcon: (
                     <InputHelpPopover
-                      bodyContent={<Text>{intl.formatMessage(messages.workspaceDescriptionMaxLength, { count: 255 })}</Text>}
+                      bodyContent={<Content component="p">{intl.formatMessage(messages.workspaceDescriptionMaxLength, { count: 255 })}</Content>}
                       field="workspace description"
                     />
                   ),

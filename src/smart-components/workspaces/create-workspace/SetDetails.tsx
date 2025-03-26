@@ -15,7 +15,7 @@ import {
   SelectList,
   SelectOption,
   Skeleton,
-  Text,
+  Content,
 } from '@patternfly/react-core';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
 import { WORKSPACE_ACCOUNT, WORKSPACE_PARENT } from './schema';
@@ -57,11 +57,11 @@ const SetDetails = () => {
         <FormGroup
           label={intl.formatMessage(messages.parentWorkspace)}
           isRequired
-          labelIcon={
+          labelHelp={
             <InputHelpPopover
               bodyContent={
                 <>
-                  <Text>{intl.formatMessage(messages.workspaceParentHelperText)}</Text>
+                  <Content component="p">{intl.formatMessage(messages.workspaceParentHelperText)}</Content>
                   <Button className="pf-v5-u-mt-xs" variant="link" href="#" isInline>
                     {intl.formatMessage(messages.learnMore)}
                   </Button>
@@ -106,11 +106,11 @@ const SetDetails = () => {
           <FormGroup
             label={intl.formatMessage(messages.billingAccount)}
             isRequired
-            labelIcon={
+            labelHelp={
               <InputHelpPopover
                 bodyContent={
                   <>
-                    <Text>{intl.formatMessage(messages.workspaceBillingAccountHelperText)}</Text>
+                    <Content component="p">{intl.formatMessage(messages.workspaceBillingAccountHelperText)}</Content>
                     <Button className="pf-v5-u-mt-xs" variant="link" href="#" isInline>
                       {intl.formatMessage(messages.learnMore)}
                     </Button>

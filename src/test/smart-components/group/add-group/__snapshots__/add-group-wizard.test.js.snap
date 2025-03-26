@@ -3,7 +3,7 @@
 exports[`<AddGroupWizard /> should render correctly 1`] = `
 <div>
   <form
-    class="pf-v5-c-form"
+    class="pf-v6-c-form"
     novalidate=""
   />
 </div>

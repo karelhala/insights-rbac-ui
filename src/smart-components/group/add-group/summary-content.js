@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, GridItem, Stack, StackItem, Text, TextVariants } from '@patternfly/react-core';
+import { Grid, GridItem, Stack, StackItem, Content, ContentVariants } from '@patternfly/react-core';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
 import { useIntl } from 'react-intl';
 import messages from '../../../Messages';
@@ -29,66 +29,66 @@ const SummaryContent = () => {
             <StackItem className="rbac-l-stack__item-summary">
               <Grid>
                 <GridItem md={3}>
-                  <Text component={TextVariants.h4} className="rbac-bold-text">
+                  <Content component={ContentVariants.h4} className="rbac-bold-text">
                     {intl.formatMessage(messages.groupName)}
-                  </Text>
+                  </Content>
                 </GridItem>
                 <GridItem md={9}>
-                  <Text component={TextVariants.p}>{name}</Text>
+                  <Content component={ContentVariants.p}>{name}</Content>
                 </GridItem>
               </Grid>
               <Grid>
                 <GridItem md={3}>
-                  <Text component={TextVariants.h4} className="rbac-bold-text">
+                  <Content component={ContentVariants.h4} className="rbac-bold-text">
                     {intl.formatMessage(messages.groupDescription)}
-                  </Text>
+                  </Content>
                 </GridItem>
                 <GridItem md={9}>
-                  <Text component={TextVariants.p}>{description}</Text>
+                  <Content component={ContentVariants.p}>{description}</Content>
                 </GridItem>
               </Grid>
               {selectedRoles && (
                 <Grid>
                   <GridItem md={3}>
-                    <Text component={TextVariants.h4} className="rbac-bold-text">
+                    <Content component={ContentVariants.h4} className="rbac-bold-text">
                       {intl.formatMessage(messages.roles)}
-                    </Text>
+                    </Content>
                   </GridItem>
                   <GridItem md={9}>
                     {selectedRoles.map((role, index) => (
-                      <Text className="pf-v5-u-mb-0" key={index}>
+                      <Content component="p" className="pf-v5-u-mb-0" key={index}>
                         {role.label}
-                      </Text>
+                      </Content>
                     ))}
                   </GridItem>
                 </Grid>
               )}
               <Grid>
                 <GridItem md={3}>
-                  <Text component={TextVariants.h4} className="rbac-bold-text">
+                  <Content component={ContentVariants.h4} className="rbac-bold-text">
                     {intl.formatMessage(messages.members)}
-                  </Text>
+                  </Content>
                 </GridItem>
                 <GridItem md={9}>
                   {selectedUsers.map((role, index) => (
-                    <Text className="pf-v5-u-mb-0" key={index}>
+                    <Content component="p" className="pf-v5-u-mb-0" key={index}>
                       {role.label}
-                    </Text>
+                    </Content>
                   ))}
                 </GridItem>
               </Grid>
               <Grid>
                 <GridItem md={3}>
-                  <Text component={TextVariants.h4} className="rbac-bold-text">
+                  <Content component={ContentVariants.h4} className="rbac-bold-text">
                     {intl.formatMessage(messages.serviceAccounts)}
-                  </Text>
+                  </Content>
                 </GridItem>
                 {enableServiceAccounts && (
                   <GridItem md={9}>
                     {selectedServiceAccounts?.map((account, index) => (
-                      <Text className="pf-v5-u-mb-0" key={index}>
+                      <Content component="p" className="pf-v5-u-mb-0" key={index}>
                         {account.name}
-                      </Text>
+                      </Content>
                     ))}
                   </GridItem>
                 )}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { ButtonVariant, Text, TextContent } from '@patternfly/react-core';
+import { ButtonVariant, Content } from '@patternfly/react-core';
 import WarningModal from '@patternfly/react-component-groups/dist/dynamic/WarningModal';
 import { fetchGroup, removeGroups } from '../../redux/actions/group-actions';
 import { FormItemLoader } from '../../presentational-components/shared/loader-placeholders';
@@ -49,9 +49,9 @@ const RemoveGroupModal = ({ postMethod, pagination, cancelRoute, submitRoute = c
       onClose={onCancel}
       onConfirm={onSubmit}
     >
-      <TextContent>
+      <Content>
         {multipleGroups ? (
-          <Text>
+          <Content component="p">
             <FormattedMessage
               {...messages.deletingGroupsRemovesRoles}
               values={{
@@ -59,11 +59,11 @@ const RemoveGroupModal = ({ postMethod, pagination, cancelRoute, submitRoute = c
                 count: groupsToRemove.length,
               }}
             />
-          </Text>
+          </Content>
         ) : isLoading ? (
           <FormItemLoader />
         ) : (
-          <Text>
+          <Content component="p">
             <FormattedMessage
               {...messages.deletingGroupRemovesRoles}
               values={{
@@ -71,9 +71,9 @@ const RemoveGroupModal = ({ postMethod, pagination, cancelRoute, submitRoute = c
                 name: group.name,
               }}
             />
-          </Text>
+          </Content>
         )}
-      </TextContent>
+      </Content>
     </WarningModal>
   );
 };

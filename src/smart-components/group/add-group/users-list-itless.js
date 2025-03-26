@@ -7,8 +7,20 @@ import { useLocation, useNavigate, Outlet } from 'react-router-dom';
 import { TableToolbarView } from '../../../presentational-components/shared/table-toolbar-view';
 import AppLink, { mergeToBasename } from '../../../presentational-components/shared/AppLink';
 import { fetchUsers, updateUsersFilters, changeUsersStatus, updateUserIsOrgAdminStatus } from '../../../redux/actions/user-actions';
-import { Button, Switch as PF4Switch, Label, Modal, ModalVariant, List, ListItem, Checkbox, Stack, StackItem } from '@patternfly/react-core';
-import { Dropdown, DropdownItem, DropdownToggle } from '@patternfly/react-core/deprecated';
+import {
+  Button,
+  Switch as PF4Switch,
+  Label,
+  List,
+  ListItem,
+  Checkbox,
+  Stack,
+  StackItem,
+  Dropdown,
+  DropdownItem,
+  MenuToggle,
+} from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { sortable, nowrap } from '@patternfly/react-table';
 import { CheckIcon, CloseIcon } from '@patternfly/react-icons';
 import { mappedProps, isExternalIdp } from '../../../helpers/shared/helpers';
@@ -76,14 +88,14 @@ const IsAdminCellDropdownContent = ({ isOrgAdmin, userId, isDisabled, toggleUser
       key={`is-admin-dropdown-${userId}`}
       onSelect={onIsAdminDropdownSelect}
       toggle={
-        <DropdownToggle
+        <MenuToggle
           id={`is-admin-dropdown-toggle-${userId}`}
           key={`is-admin-dropdown-toggle-${userId}`}
           isDisabled={isDisabled}
           onToggle={onIsAdminDropdownToggle}
         >
           {isOrgAdmin ? intl.formatMessage(messages.yes) : intl.formatMessage(messages.no)}
-        </DropdownToggle>
+        </MenuToggle>
       }
       isOpen={isAdminDropdownOpen}
       dropdownItems={dropdownItems}
@@ -192,9 +204,9 @@ const UsersListItless = ({ selectedUsers, setSelectedUsers, userLinks, usesMetaI
       <Dropdown
         onSelect={onToolbarDropdownSelect}
         toggle={
-          <DropdownToggle id="toolbar-dropdown-toggle" isDisabled={selectedRows.length === 0} onToggle={onToggle}>
+          <MenuToggle id="toolbar-dropdown-toggle" isDisabled={selectedRows.length === 0} onToggle={onToggle}>
             {intl.formatMessage(messages.activateUsersButton)}
-          </DropdownToggle>
+          </MenuToggle>
         }
         isOpen={isToolbarDropdownOpen}
         dropdownItems={dropdownItems}
@@ -297,7 +309,6 @@ const UsersListItless = ({ selectedUsers, setSelectedUsers, userLinks, usesMetaI
                         key="status"
                         isDisabled={!isAdmin || currentUser?.identity?.internal?.account_id == external_source_id}
                         label={intl.formatMessage(messages.active)}
-                        labelOff={intl.formatMessage(messages.inactive)}
                         isChecked={is_active}
                         onChange={(checked, _event) => {
                           toggleUserActivationStatus(checked, _event, [

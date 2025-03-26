@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
-import { Grid, GridItem, Text, TextVariants, FormGroup, Tooltip } from '@patternfly/react-core';
-import { Select, SelectOption, SelectVariant } from '@patternfly/react-core/deprecated';
+import { Grid, GridItem, Content, ContentVariants, FormGroup, Tooltip, Select, SelectOption, SelectVariant } from '@patternfly/react-core';
 import useFieldApi from '@data-driven-forms/react-form-renderer/use-field-api';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
 import { fetchResourceDefinitions, fetchResource } from '../../../redux/actions/cost-management-actions';
@@ -182,14 +181,14 @@ const CostResources = (props) => {
   return (
     <Grid hasGutter>
       <GridItem md={4} className="rbac-m-hide-on-sm">
-        <Text component={TextVariants.h4} className="rbac-bold-text">
+        <Content component={ContentVariants.h4} className="rbac-bold-text">
           {intl.formatMessage(messages.permissions)}
-        </Text>
+        </Content>
       </GridItem>
       <GridItem md={8} className="rbac-m-hide-on-sm">
-        <Text component={TextVariants.h4} className="rbac-bold-text">
+        <Content component={ContentVariants.h4} className="rbac-bold-text">
           {intl.formatMessage(messages.resourceDefinitions)}
-        </Text>
+        </Content>
       </GridItem>
       {permissions.map(makeRow)}
     </Grid>

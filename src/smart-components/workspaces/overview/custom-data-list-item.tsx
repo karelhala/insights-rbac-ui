@@ -55,7 +55,7 @@ const CustomDataListItem: React.FC<CustomDataListItemProps> = ({ icon, heading, 
             ]}
           />
           {linkTitle && linkTarget && (
-            <DataListAction aria-labelledby="item1 action1" id="action1" aria-label="Actions" isPlainButtonAction>
+            <DataListAction aria-labelledby="item1 action1" id="action1" aria-label="Actions">
               <Button component="a" href={linkTarget} variant="link">
                 {linkTitle}
               </Button>

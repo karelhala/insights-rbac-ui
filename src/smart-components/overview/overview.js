@@ -26,7 +26,7 @@ import {
   PageSection,
   Title,
 } from '@patternfly/react-core';
-import ContentHeader from '@patternfly/react-component-groups/dist/dynamic/ContentHeader';
+import PageHeader from '@patternfly/react-component-groups/dist/dynamic/PageHeader';
 import { useIntl } from 'react-intl';
 import messages from '../../Messages';
 import { ArrowRightIcon, CubesIcon, ExternalLinkAltIcon } from '@patternfly/react-icons';
@@ -34,7 +34,6 @@ import './overview.scss';
 import { Table, Tbody, Td, Tr } from '@patternfly/react-table';
 import AppLink from '../../presentational-components/shared/AppLink';
 import pathnames from '../../utilities/pathnames';
-import EnableWorkspacesAlert from './enable-workspaces-alert';
 import { useFlag } from '@unleash/proxy-client-react';
 
 const Overview = () => {
@@ -45,8 +44,8 @@ const Overview = () => {
 
   return (
     <React.Fragment>
-      {isWorkspacesEligible && !isWorkspacesFlag && <EnableWorkspacesAlert />}
-      <ContentHeader
+      {isWorkspacesEligible && !isWorkspacesFlag && <PageHeader data-codemods />}
+      <PageHeader
         title={intl.formatMessage(messages.overview)}
         subtitle={intl.formatMessage(messages.overviewSubtitle)}
         icon={<img src="/apps/frontend-assets/rbac-landing/rbac-landing-icon.svg" className="rbac-overview-icon" alt="RBAC landing page icon" />}
@@ -56,7 +55,7 @@ const Overview = () => {
           to: 'https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/2023/html/user_access_configuration_guide_for_role-based_access_control_rbac/index',
         }}
       />
-      <PageSection>
+      <PageSection hasBodyWrapper={false}>
         <Card aria-label="Get started card" className="pf-v5-u-mb-lg" data-ouia-component-id="get-started-card">
           <Grid hasGutter>
             <GridItem sm={12} md={6} lg={8}>

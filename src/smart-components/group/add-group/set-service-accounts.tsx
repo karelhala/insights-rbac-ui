@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Alert, Form, FormGroup, Stack, StackItem, TextContent } from '@patternfly/react-core';
+import { Alert, Form, FormGroup, Stack, StackItem, Content } from '@patternfly/react-core';
 import useFieldApi from '@data-driven-forms/react-form-renderer/use-field-api';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
 import { useIntl } from 'react-intl';
@@ -33,7 +33,7 @@ const SetServiceAccounts: React.FunctionComponent<SetServiceAccountProps> = ({ n
       <Form>
         <Stack hasGutter>
           <StackItem>
-            <TextContent>
+            <Content>
               {intl.formatMessage(messages.addServiceAccountsToGroupDescription)}
               <Alert
                 className="pf-v5-u-mt-sm rbac-service-accounts-alert"
@@ -49,7 +49,7 @@ const SetServiceAccounts: React.FunctionComponent<SetServiceAccountProps> = ({ n
                   ),
                 })}
               />
-            </TextContent>
+            </Content>
           </StackItem>
           <StackItem>
             <FormGroup fieldId="select-service-accounts">

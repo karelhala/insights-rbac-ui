@@ -1,6 +1,6 @@
 import React, { Fragment, useRef, useState } from 'react';
 import { OutlinedQuestionCircleIcon, CheckIcon, CloseIcon } from '@patternfly/react-icons';
-import { Popover, TextContent, Label, Text } from '@patternfly/react-core';
+import { Popover, Content, Label } from '@patternfly/react-core';
 import { TableVariant } from '@patternfly/react-table';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table/deprecated';
 import { useIntl } from 'react-intl';
@@ -158,9 +158,9 @@ export const createRows = (isAdmin, data, selectedRows, expanded = []) => {
                   <TableBody />
                 </Table>
               ) : (
-                <Text id={compoundRolesId} className="pf-v5-u-mx-lg pf-v5-u-my-sm">
+                <Content component="p" id={compoundRolesId} className="pf-v5-u-mx-lg pf-v5-u-my-sm">
                   {intl.formatMessage(messages.noGroupRoles)}
-                </Text>
+                </Content>
               ),
             },
           ],
@@ -184,14 +184,14 @@ export const createRows = (isAdmin, data, selectedRows, expanded = []) => {
                   variant={TableVariant.compact}
                   cells={compoundMembersCells}
                   rows={members?.map((member) => [
-                    <TextContent key={member.is_org_admin}>
+                    <Content key={member.is_org_admin}>
                       {member?.is_org_admin ? (
                         <CheckIcon key="yes-icon" className="pf-v5-u-mx-sm" />
                       ) : (
                         <CloseIcon key="no-icon" className="pf-v5-u-mx-sm" />
                       )}
                       {intl.formatMessage(member?.is_org_admin ? messages.yes : messages.no)}
-                    </TextContent>,
+                    </Content>,
                     member.first_name,
                     member.last_name,
                     member.username,
@@ -207,9 +207,9 @@ export const createRows = (isAdmin, data, selectedRows, expanded = []) => {
               ) : isAdminDefault || isPlatformDefault ? (
                 ''
               ) : (
-                <Text id={compoundMembersId} className="pf-v5-u-mx-lg pf-v5-u-my-sm">
+                <Content component="p" id={compoundMembersId} className="pf-v5-u-mx-lg pf-v5-u-my-sm">
                   {intl.formatMessage(messages.noGroupMembers)}
-                </Text>
+                </Content>
               ),
             },
           ],

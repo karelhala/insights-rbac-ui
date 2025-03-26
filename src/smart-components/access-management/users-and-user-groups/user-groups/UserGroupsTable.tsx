@@ -8,7 +8,7 @@ import { BulkSelect, BulkSelectValue } from '@patternfly/react-component-groups/
 import { DataView } from '@patternfly/react-data-view/dist/dynamic/DataView';
 import { DataViewToolbar } from '@patternfly/react-data-view/dist/dynamic/DataViewToolbar';
 import { DataViewTable } from '@patternfly/react-data-view/dist/dynamic/DataViewTable';
-import { ButtonVariant, EmptyState, EmptyStateBody, EmptyStateHeader, EmptyStateIcon, Pagination, Tooltip } from '@patternfly/react-core';
+import { ButtonVariant, EmptyState, EmptyStateBody, Pagination, Tooltip } from '@patternfly/react-core';
 import { DataViewTrObject, DataViewState, EventTypes, useDataViewEventsContext } from '@patternfly/react-data-view';
 import { SearchIcon } from '@patternfly/react-icons';
 import { ActionsColumn } from '@patternfly/react-table';
@@ -26,8 +26,7 @@ const COLUMNS: string[] = ['User group name', 'Description', 'Users', 'Service a
 
 const EmptyTable: React.FunctionComponent<{ titleText: string }> = ({ titleText }) => {
   return (
-    <EmptyState>
-      <EmptyStateHeader titleText={titleText} headingLevel="h4" icon={<EmptyStateIcon icon={SearchIcon} />} />
+    <EmptyState headingLevel="h4" icon={SearchIcon} titleText={titleText}>
       <EmptyStateBody>
         <FormattedMessage
           {...messages['usersEmptyStateSubtitle']}

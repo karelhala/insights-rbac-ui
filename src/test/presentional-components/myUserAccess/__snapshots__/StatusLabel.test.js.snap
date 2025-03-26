@@ -8,13 +8,13 @@ exports[`<StatusLabel /> should render correctly as admin 1`] = `
     style="display: contents;"
   >
     <span
-      class="pf-v5-c-label pf-m-purple"
+      class="pf-v6-c-label pf-m-purple pf-m-filled"
     >
       <span
-        class="pf-v5-c-label__content"
+        class="pf-v6-c-label__content"
       >
         <span
-          class="pf-v5-c-label__text"
+          class="pf-v6-c-label__text"
         >
            
           Org. Administrator

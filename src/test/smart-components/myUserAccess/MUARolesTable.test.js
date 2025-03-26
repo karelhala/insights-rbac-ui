@@ -165,7 +165,7 @@ describe('<MUARolesTable />', () => {
 
     expect(() =>
       screen.getByText('Resource definitions', {
-        selector: '.pf-v5-c-modal-box__title-text',
+        selector: '.pf-v6-c-modal-box__title-text',
       })
     ).toThrow();
     await act(async () => {
@@ -179,7 +179,7 @@ describe('<MUARolesTable />', () => {
     });
     expect(
       screen.getByText('Resource definitions', {
-        selector: '.pf-v5-c-modal-box__title-text',
+        selector: '.pf-v6-c-modal-box__title-text',
       })
     ).toBeInTheDocument();
     await act(async () => {
@@ -187,7 +187,7 @@ describe('<MUARolesTable />', () => {
     });
     expect(() =>
       screen.getByText('Resource definitions', {
-        selector: '.pf-v5-c-modal-box__title-text',
+        selector: '.pf-v6-c-modal-box__title-text',
       })
     ).toThrow();
   });

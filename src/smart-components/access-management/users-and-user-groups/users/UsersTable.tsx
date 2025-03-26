@@ -14,11 +14,8 @@ import {
   ButtonVariant,
   Pagination,
   EmptyState,
-  EmptyStateHeader,
-  EmptyStateIcon,
   EmptyStateBody,
   Switch,
-  List,
   ListItem,
   Dropdown,
   DropdownItem,
@@ -28,6 +25,7 @@ import {
   Split,
   SplitItem,
 } from '@patternfly/react-core';
+import { List } from '@patternfly/react-core/dist/dynamic/components/List';
 import { ActionsColumn } from '@patternfly/react-table';
 import { DataViewState, EventTypes, useDataViewEventsContext } from '@patternfly/react-data-view';
 import { SearchIcon } from '@patternfly/react-icons';
@@ -46,8 +44,7 @@ const COLUMNS: string[] = ['Username', 'Email', 'First name', 'Last name', 'Stat
 
 const EmptyTable: React.FunctionComponent<{ titleText: string }> = ({ titleText }) => {
   return (
-    <EmptyState>
-      <EmptyStateHeader titleText={titleText} headingLevel="h4" icon={<EmptyStateIcon icon={SearchIcon} />} />
+    <EmptyState headingLevel="h4" icon={SearchIcon} titleText={titleText}>
       <EmptyStateBody>
         <FormattedMessage
           {...messages['usersEmptyStateSubtitle']}
@@ -222,7 +219,6 @@ const UsersTable: React.FunctionComponent<UsersTableProps> = ({ onAddUserClick, 
             isChecked={checkedStates[user.external_source_id]}
             onChange={(e, value) => handleToggle(e, value, user)}
             label={intl.formatMessage(messages['usersAndUserGroupsActive'])}
-            labelOff={intl.formatMessage(messages['usersAndUserGroupsInactive'])}
           ></Switch>,
         ],
         user.is_org_admin ? intl.formatMessage(messages['usersAndUserGroupsYes']) : intl.formatMessage(messages['usersAndUserGroupsNo']),

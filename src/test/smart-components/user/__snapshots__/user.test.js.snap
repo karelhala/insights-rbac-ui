@@ -3,27 +3,27 @@
 exports[`<User /> should render user 1`] = `
 <div>
   <div
-    class="pf-v5-l-stack"
+    class="pf-v6-l-stack"
   >
     <div
-      class="pf-v5-l-stack__item"
+      class="pf-v6-l-stack__item"
     >
       <section
         class="pf-v5-c-page__main-breadcrumb"
       >
         <nav
           aria-label="Breadcrumb"
-          class="pf-v5-c-breadcrumb"
+          class="pf-v6-c-breadcrumb"
           data-ouia-component-id="OUIA-Generated-Breadcrumb-1"
-          data-ouia-component-type="PF5/Breadcrumb"
+          data-ouia-component-type="PF6/Breadcrumb"
           data-ouia-safe="true"
         >
           <ol
-            class="pf-v5-c-breadcrumb__list"
+            class="pf-v6-c-breadcrumb__list"
             role="list"
           >
             <li
-              class="pf-v5-c-breadcrumb__item"
+              class="pf-v6-c-breadcrumb__item"
             >
               <a
                 class=""
@@ -33,14 +33,14 @@ exports[`<User /> should render user 1`] = `
               </a>
             </li>
             <li
-              class="pf-v5-c-breadcrumb__item"
+              class="pf-v6-c-breadcrumb__item"
             >
               <span
-                class="pf-v5-c-breadcrumb__item-divider"
+                class="pf-v6-c-breadcrumb__item-divider"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -58,47 +58,67 @@ exports[`<User /> should render user 1`] = `
         </nav>
       </section>
       <section
-        class="rbac-page-header pf-v5-l-page-header pf-v5-c-page-header pf-v5-l-page__main-section pf-v5-c-page__main-section pf-m-light"
-        data-ouia-component-id="OUIA-Generated-RHI/Header-true-1"
-        data-ouia-component-type="RHI/Header"
-        data-ouia-safe="true"
-        widget-type="InsightsPageHeader"
+        class="pf-v6-c-page__main-section"
       >
         <div
-          class="pf-v5-l-flex"
+          class="pf-v6-l-flex"
+        >
+          <div
+            class="pf-m-flex-1"
+          >
+            <div
+              class="pf-v6-l-split pf-m-gutter"
+            >
+              <div
+                class="pf-v6-l-split__item"
+              >
+                <h1
+                  class="pf-v6-c-content--h1 pf-v6-u-mb-sm"
+                  data-ouia-component-id="PageHeader-title"
+                  data-ouia-component-type="PF6/Content"
+                  data-ouia-safe="true"
+                  data-pf-content="true"
+                />
+              </div>
+              <div
+                class="pf-v6-l-split__item pf-m-fill"
+              />
+            </div>
+            <p
+              class="pf-v6-c-content--p"
+              data-ouia-component-id="PageHeader-subtitle"
+              data-ouia-component-type="PF6/Content"
+              data-ouia-safe="true"
+              data-pf-content="true"
+            />
+          </div>
+        </div>
+        <div
+          class="pf-v6-l-flex"
         >
           <div
             class="pf-v5-u-mb-sm"
           >
-            <div
-              class="pf-v5-l-flex pf-m-justify-content-space-between"
+            <h1
+              class="pf-v6-c-title pf-m-h1 rbac-page-header__title"
+              data-ouia-component-id="OUIA-Generated-Title-1"
+              data-ouia-component-type="PF6/Title"
+              data-ouia-safe="true"
             >
-              <div
-                class="pf-v5-u-flex-grow-1"
-              >
-                <h1
-                  class="pf-v5-c-title pf-m-2xl rbac-page-header__title"
-                  data-ouia-component-id="OUIA-Generated-RHI/Header-true-2"
-                  data-ouia-component-type="RHI/Header"
-                  data-ouia-safe="true"
-                  widget-type="InsightsPageHeaderTitle"
-                >
-                  epacific-insights
-                </h1>
-              </div>
-            </div>
+              epacific-insights
+            </h1>
           </div>
           <div
             class=""
           >
             <span
-              class="pf-v5-c-label pf-m-green"
+              class="pf-v6-c-label pf-m-green pf-m-filled"
             >
               <span
-                class="pf-v5-c-label__content"
+                class="pf-v6-c-label__content"
               >
                 <span
-                  class="pf-v5-c-label__text"
+                  class="pf-v6-c-label__text"
                 >
                   Active
                 </span>
@@ -107,12 +127,16 @@ exports[`<User /> should render user 1`] = `
           </div>
         </div>
         <div
-          class="pf-v5-c-content"
+          class="pf-v6-c-content"
+          data-ouia-component-id="OUIA-Generated-Content-3"
+          data-ouia-component-type="PF6/Content"
+          data-ouia-safe="true"
+          data-pf-content="true"
         >
           Org. Administrator: 
           <svg
             aria-hidden="true"
-            class="pf-v5-svg pf-v5-u-mx-sm"
+            class="pf-v6-svg pf-v5-u-mx-sm"
             fill="currentColor"
             height="1em"
             role="img"
@@ -126,21 +150,25 @@ exports[`<User /> should render user 1`] = `
           No
         </div>
         <p
-          class=""
-          data-ouia-component-id="OUIA-Generated-Text-1"
-          data-ouia-component-type="PF5/Text"
+          class="pf-v6-c-content--p"
+          data-ouia-component-id="OUIA-Generated-Content-4"
+          data-ouia-component-type="PF6/Content"
           data-ouia-safe="true"
           data-pf-content="true"
         >
           Email: user@redhat.com
         </p>
         <div
-          class="pf-v5-c-content"
+          class="pf-v6-c-content"
+          data-ouia-component-id="OUIA-Generated-Content-5"
+          data-ouia-component-type="PF6/Content"
+          data-ouia-safe="true"
+          data-pf-content="true"
         >
           <p
-            class=""
-            data-ouia-component-id="OUIA-Generated-Text-2"
-            data-ouia-component-type="PF5/Text"
+            class="pf-v6-c-content--p"
+            data-ouia-component-id="OUIA-Generated-Content-6"
+            data-ouia-component-type="PF6/Content"
             data-ouia-safe="true"
             data-pf-content="true"
           >
@@ -150,7 +178,7 @@ exports[`<User /> should render user 1`] = `
       </section>
     </div>
     <div
-      class="pf-v5-l-stack__item"
+      class="pf-v6-l-stack__item"
     >
       <section
         class="rbac-c-user-roles ins-l-content"
@@ -158,20 +186,20 @@ exports[`<User /> should render user 1`] = `
          
         <div>
           <div
-            class="pf-v5-c-empty-state pf-m-sm"
+            class="pf-v6-c-empty-state pf-m-sm"
           >
             <div
-              class="pf-v5-c-empty-state__content"
+              class="pf-v6-c-empty-state__content"
             >
               <div
-                class="pf-v5-c-empty-state__header"
+                class="pf-v6-c-empty-state__header"
               >
                 <div
-                  class="pf-v5-c-empty-state__icon"
+                  class="pf-v6-c-empty-state__icon"
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-v5-svg"
+                    class="pf-v6-svg"
                     fill="currentColor"
                     height="1em"
                     role="img"
@@ -184,17 +212,17 @@ exports[`<User /> should render user 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="pf-v5-c-empty-state__title"
+                  class="pf-v6-c-empty-state__title"
                 >
                   <h4
-                    class="pf-v5-c-empty-state__title-text"
+                    class="pf-v6-c-empty-state__title-text"
                   >
                     Configure {items}
                   </h4>
                 </div>
               </div>
               <div
-                class="pf-v5-c-empty-state__body pf-v5-u-mb-md"
+                class="pf-v6-c-empty-state__body pf-v5-u-mb-md"
               >
                 To configure user access to applications
                  
@@ -204,7 +232,7 @@ exports[`<User /> should render user 1`] = `
                 <br />
               </div>
               <div
-                class="pf-v5-c-empty-state__footer"
+                class="pf-v6-c-empty-state__footer"
               />
             </div>
           </div>

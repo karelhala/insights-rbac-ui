@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Modal, ModalVariant } from '@patternfly/react-core';
+import { Button } from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { FormattedMessage, useIntl } from 'react-intl';
 import UserGroupsTable from '../../user-groups/UserGroupsTable';
 import { useDispatch } from 'react-redux';

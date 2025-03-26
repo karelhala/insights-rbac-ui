@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { Outlet, useNavigationType, useParams } from 'react-router-dom';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
-import { Button, Level, LevelItem, Text, TextContent } from '@patternfly/react-core';
-import { Dropdown, DropdownItem, KebabToggle } from '@patternfly/react-core/deprecated';
+import { Button, Level, LevelItem, Content, Dropdown, DropdownItem, MenuToggle } from '@patternfly/react-core';
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { fetchRole, fetchRolesWithPolicies } from '../../redux/actions/role-actions';
@@ -159,7 +158,7 @@ const Role = ({ onDelete }) => {
                 <LevelItem>
                   <Dropdown
                     ouiaId="role-title-actions-dropdown"
-                    toggle={<KebabToggle onToggle={(_event, isOpen) => setDropdownOpen(isOpen)} id="role-actions-dropdown" />}
+                    toggle={<MenuToggle variant="plain" onToggle={(_event, isOpen) => setDropdownOpen(isOpen)} id="role-actions-dropdown" />}
                     isOpen={isDropdownOpen}
                     isPlain
                     position="right"
@@ -169,9 +168,9 @@ const Role = ({ onDelete }) => {
               )}
             </Level>
             {description && (
-              <TextContent className="rbac-page-header__description">
-                <Text component="p">{description}</Text>
-              </TextContent>
+              <Content className="rbac-page-header__description">
+                <Content component="p">{description}</Content>
+              </Content>
             )}
           </TopToolbar>
           <Permissions cantAddPermissions={isNonPermissionAddingRole} isLoading={isLoading || !role} />

@@ -1,4 +1,5 @@
-import { Button, Modal } from '@patternfly/react-core';
+import { Button } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/deprecated';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TableToolbarView } from '../../presentational-components/shared/table-toolbar-view';

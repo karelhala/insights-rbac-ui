@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useIntl } from 'react-intl';
-import { Button, EmptyState, EmptyStateVariant, EmptyStateIcon, EmptyStateActions, EmptyStateHeader, EmptyStateFooter } from '@patternfly/react-core';
+import { Button, EmptyState, EmptyStateVariant, EmptyStateActions, EmptyStateFooter } from '@patternfly/react-core';
 import { CheckCircleIcon } from '@patternfly/react-icons';
 import { AddGroupWizardContext } from './add-group-wizard';
 import messages from '../../../Messages';
@@ -14,12 +14,12 @@ const AddGroupSuccess = ({ onClose }: AddGroupSuccessProps) => {
   const { setHideForm, setWizardSuccess } = useContext(AddGroupWizardContext);
 
   return (
-    <EmptyState variant={EmptyStateVariant.lg}>
-      <EmptyStateHeader
-        titleText={<>{intl.formatMessage(messages.groupCreatedSuccessfully)}</>}
-        icon={<EmptyStateIcon className="pf-v5-u-mt-xl" color="green" icon={CheckCircleIcon} />}
-        headingLevel="h4"
-      />
+    <EmptyState
+      headingLevel="h4"
+      icon={CheckCircleIcon}
+      titleText={<>{intl.formatMessage(messages.groupCreatedSuccessfully)}</>}
+      variant={EmptyStateVariant.lg}
+    >
       <EmptyStateFooter>
         <Button onClick={onClose} variant="primary">
           {intl.formatMessage(messages.exit)}

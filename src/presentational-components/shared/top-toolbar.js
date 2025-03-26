@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Text, TextContent, TextVariants, Flex, FlexItem } from '@patternfly/react-core';
+import { Content, ContentVariants, Flex, FlexItem } from '@patternfly/react-core';
 import { ToolbarTitlePlaceholder } from './loader-placeholders';
 import RbacBreadcrumbs from './breadcrumbs';
-import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
+import PageHeader from '@patternfly/react-component-groups/dist/dynamic/PageHeader';
+import { Title } from '@patternfly/react-core';
 
 import './top-toolbar.scss';
 
@@ -32,14 +33,16 @@ export const TopToolbarTitle = ({ title, renderTitleTag, description, children }
   <Fragment>
     <Flex>
       <FlexItem className="pf-v5-u-mb-sm">
-        <PageHeaderTitle title={title || <ToolbarTitlePlaceholder />} className="rbac-page-header__title" />
+        <Title headingLevel="h1" className="rbac-page-header__title">
+          {title || <ToolbarTitlePlaceholder />}
+        </Title>
       </FlexItem>
       <FlexItem alignSelf={{ modifier: 'alignSelfCenter' }}>{renderTitleTag && renderTitleTag()}</FlexItem>
     </Flex>
     {description && (
-      <TextContent className="rbac-page-header__description">
-        {typeof description === 'string' ? <Text component={TextVariants.p}>{description}</Text> : description}
-      </TextContent>
+      <Content className="rbac-page-header__description">
+        {typeof description === 'string' ? <Content component={ContentVariants.p}>{description}</Content> : description}
+      </Content>
     )}
     {children}
   </Fragment>

@@ -1,7 +1,8 @@
 import React, { useState, Fragment, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
-import { Modal, Button, ModalVariant, ExpandableSection, Form, FormGroup, TextArea, Checkbox } from '@patternfly/react-core';
+import { Button, ExpandableSection, Form, FormGroup, TextArea, Checkbox } from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { useDispatch } from 'react-redux';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/';
 import WarningModal from '@patternfly/react-component-groups/dist/dynamic/WarningModal';

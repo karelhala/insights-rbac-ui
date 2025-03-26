@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import NotAuthorized from '@patternfly/react-component-groups/dist/dynamic/NotAuthorized';
+import UnauthorizedAccess from '@patternfly/react-component-groups/dist/dynamic/UnauthorizedAccess';
 import NotificationPortal from '@redhat-cloud-services/frontend-components-notifications/NotificationPortal/';
 import AppLink from './AppLink';
 
@@ -13,9 +13,10 @@ import pathnames from '../../utilities/pathnames';
 
 const errorStates = {
   403: ({ serviceName }) => (
-    <NotAuthorized
+    <UnauthorizedAccess
+      data-codemods
       serviceName={serviceName}
-      description={
+      bodyText={
         <FormattedMessage
           {...messages.contactOrgAdmin}
           values={{

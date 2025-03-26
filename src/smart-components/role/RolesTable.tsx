@@ -7,20 +7,9 @@ import { DataViewToolbar } from '@patternfly/react-data-view/dist/dynamic/DataVi
 import { DataViewTable } from '@patternfly/react-data-view/dist/dynamic/DataViewTable';
 import { DataViewEventsProvider, EventTypes, useDataViewEventsContext } from '@patternfly/react-data-view/dist/dynamic/DataViewEventsContext';
 import { useDataViewSort } from '@patternfly/react-data-view/dist/dynamic/Hooks';
-import {
-  ButtonVariant,
-  Drawer,
-  DrawerContent,
-  DrawerContentBody,
-  EmptyState,
-  EmptyStateBody,
-  EmptyStateHeader,
-  EmptyStateIcon,
-  PageSection,
-  Pagination,
-} from '@patternfly/react-core';
+import { ButtonVariant, Drawer, DrawerContent, DrawerContentBody, EmptyState, EmptyStateBody, PageSection, Pagination } from '@patternfly/react-core';
 import { ActionsColumn, TableVariant, ThProps } from '@patternfly/react-table';
-import ContentHeader from '@patternfly/react-component-groups/dist/esm/ContentHeader';
+import PageHeader from '@patternfly/react-component-groups/dist/dynamic/PageHeader';
 import { fetchRolesWithPolicies, removeRole } from '../../redux/actions/role-actions';
 import { FormattedMessage, useIntl } from 'react-intl';
 import messages from '../../Messages';
@@ -44,7 +33,7 @@ import { SearchIcon } from '@patternfly/react-icons';
 const EmptyTable: React.FunctionComponent<{ titleText: string }> = ({ titleText }) => {
   return (
     <EmptyState>
-      <EmptyStateHeader titleText={titleText} headingLevel="h4" icon={<EmptyStateIcon icon={SearchIcon} />} />
+      <PageHeader data-codemods title={titleText} subtitle="" icon={<SearchIcon />} />
       <EmptyStateBody>
         <FormattedMessage
           {...messages['rolesEmptyStateSubtitle']}
@@ -223,8 +212,8 @@ const RolesTable: React.FunctionComponent<RolesTableProps> = ({ selectedRole }) 
 
   return (
     <React.Fragment>
-      <ContentHeader title="Roles" subtitle={''} />
-      <PageSection isWidthLimited>
+      <PageHeader title="Roles" subtitle={''} />
+      <PageSection hasBodyWrapper isWidthLimited>
         {isDeleteModalOpen && (
           <WarningModal
             ouiaId={`${ouiaId}-remove-role-modal`}

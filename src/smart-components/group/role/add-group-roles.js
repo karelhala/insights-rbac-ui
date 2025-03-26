@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-import { Alert, Button, Modal, ModalVariant, Stack, StackItem, Title } from '@patternfly/react-core';
+import { Alert, Button, Stack, StackItem, Title } from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/Skeleton';

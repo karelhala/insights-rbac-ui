@@ -29,7 +29,7 @@ import AppLink from '../../presentational-components/shared/AppLink';
 import pathnames from '../../utilities/pathnames';
 import messages from '../../Messages';
 import useAppNavigate from '../../hooks/useAppNavigate';
-import { EmptyState, EmptyStateHeader, EmptyStateIcon, EmptyStateBody } from '@patternfly/react-core';
+import { EmptyState, EmptyStateBody } from '@patternfly/react-core';
 import { SearchIcon } from '@patternfly/react-icons';
 
 interface WorkspaceFilters {
@@ -72,8 +72,7 @@ const buildRows = (workspaces: Workspace[]): DataViewTrTree[] =>
 
 const EmptyWorkspacesTable: React.FunctionComponent<{ titleText: string }> = ({ titleText }) => {
   return (
-    <EmptyState>
-      <EmptyStateHeader titleText={titleText} headingLevel="h4" icon={<EmptyStateIcon icon={SearchIcon} />} />
+    <EmptyState headingLevel="h4" icon={SearchIcon} titleText={titleText}>
       <EmptyStateBody>
         <FormattedMessage
           {...messages['workspaceEmptyStateSubtitle']}
@@ -153,7 +152,7 @@ const WorkspaceListTable = () => {
   };
 
   if (error) {
-    return <ErrorState errorDescription={error} />;
+    return <ErrorState bodyText={error} />;
   }
 
   return (

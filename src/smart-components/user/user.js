@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext, Fragment, Suspense } from 'reac
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useNavigationType, useParams } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { Button, Label, Stack, StackItem, Text, TextContent, TextVariants } from '@patternfly/react-core';
+import { Button, Label, Stack, StackItem, Content, ContentVariants } from '@patternfly/react-core';
 import { TableVariant, compoundExpand } from '@patternfly/react-table';
 import { Table, TableHeader, TableBody } from '@patternfly/react-table/deprecated';
 import { CheckIcon, CloseIcon } from '@patternfly/react-icons';
@@ -153,9 +153,9 @@ const User = () => {
                         <TableBody />
                       </Table>
                     ) : (
-                      <Text className="pf-v5-u-mx-lg pf-v5-u-my-sm">
+                      <Content component="p" className="pf-v5-u-mx-lg pf-v5-u-my-sm">
                         {loadingRolesTemp ? intl.formatMessage(messages.loading) : intl.formatMessage(messages.noGroups)}
-                      </Text>
+                      </Content>
                     ),
                 },
               ],
@@ -181,7 +181,9 @@ const User = () => {
                           <TableBody />
                         </Table>
                       ) : (
-                        <Text className="pf-v5-u-mx-lg pf-v5-u-my-sm">{intl.formatMessage(messages.noPermissions)}</Text>
+                        <Content component="p" className="pf-v5-u-mx-lg pf-v5-u-my-sm">
+                          {intl.formatMessage(messages.noPermissions)}
+                        </Content>
                       )
                     ) : (
                       <SkeletonTable rows={accessCount} columns={nestedPermissionsCells} variant={TableVariant.compact} />
@@ -247,7 +249,7 @@ const User = () => {
               >
                 {!isLoadingUsers && user ? (
                   <Fragment>
-                    <TextContent>
+                    <Content>
                       {`${intl.formatMessage(messages.orgAdministrator)}: `}
                       {user?.is_org_admin ? (
                         <CheckIcon key="yes-icon" className="pf-v5-u-mx-sm" />
@@ -255,12 +257,12 @@ const User = () => {
                         <CloseIcon key="no-icon" className="pf-v5-u-mx-sm" />
                       )}
                       {intl.formatMessage(user?.is_org_admin ? messages.yes : messages.no)}
-                    </TextContent>
-                    {user?.email && <Text component={TextVariants.p}>{`${intl.formatMessage(messages.email)}: ${user.email}`}</Text>}
+                    </Content>
+                    {user?.email && <Content component={ContentVariants.p}>{`${intl.formatMessage(messages.email)}: ${user.email}`}</Content>}
                     {user?.username && (
-                      <TextContent>
-                        <Text component={TextVariants.p}>{`${intl.formatMessage(messages.username)}: ${user.username}`}</Text>
-                      </TextContent>
+                      <Content>
+                        <Content component={ContentVariants.p}>{`${intl.formatMessage(messages.username)}: ${user.username}`}</Content>
+                      </Content>
                     )}
                   </Fragment>
                 ) : null}

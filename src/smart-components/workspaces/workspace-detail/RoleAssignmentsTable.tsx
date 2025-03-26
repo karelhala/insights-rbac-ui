@@ -8,7 +8,7 @@ import { BulkSelect, BulkSelectValue } from '@patternfly/react-component-groups/
 import { DataView } from '@patternfly/react-data-view/dist/dynamic/DataView';
 import { DataViewToolbar } from '@patternfly/react-data-view/dist/dynamic/DataViewToolbar';
 import { DataViewTable } from '@patternfly/react-data-view/dist/dynamic/DataViewTable';
-import { EmptyState, EmptyStateBody, EmptyStateHeader, EmptyStateIcon, Pagination, Tooltip } from '@patternfly/react-core';
+import { EmptyState, EmptyStateBody, Pagination, Tooltip } from '@patternfly/react-core';
 import { DataViewState } from '@patternfly/react-data-view';
 import { SearchIcon } from '@patternfly/react-icons';
 import { SkeletonTableBody, SkeletonTableHead } from '@patternfly/react-component-groups';
@@ -21,8 +21,7 @@ import { mappedProps } from '../../../helpers/shared/helpers';
 
 const EmptyTable: React.FunctionComponent<{ titleText: string }> = ({ titleText }) => {
   return (
-    <EmptyState>
-      <EmptyStateHeader titleText={titleText} headingLevel="h4" icon={<EmptyStateIcon icon={SearchIcon} />} />
+    <EmptyState headingLevel="h4" icon={SearchIcon} titleText={titleText}>
       <EmptyStateBody>
         <FormattedMessage
           {...messages['roleAssignmentsEmptyStateSubtitle']}

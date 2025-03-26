@@ -2,8 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWorkspace, fetchWorkspaces } from '../../../redux/actions/workspaces-actions';
-import { ContentHeader } from '@patternfly/react-component-groups';
-import { Breadcrumb, BreadcrumbItem, Divider, PageSection, Skeleton, Tab, Tabs } from '@patternfly/react-core';
+import { PageHeader } from '@patternfly/react-component-groups';
+import { Breadcrumb, BreadcrumbItem, Divider, PageSection, Tab, Tabs } from '@patternfly/react-core';
 import { RBACStore } from '../../../redux/store';
 import { useParams, useSearchParams } from 'react-router-dom';
 import WorkspaceActions from '../WorkspaceActions';
@@ -34,7 +34,7 @@ const WorkspaceDetail = () => {
   const assetsRef = React.createRef<HTMLElement>();
 
   const dispatch = useDispatch();
-  const { isLoading, workspaces, selectedWorkspace } = useSelector((state: RBACStore) => state.workspacesReducer);
+  const { workspaces, selectedWorkspace } = useSelector((state: RBACStore) => state.workspacesReducer);
   const [workspaceHierarchy, setWorkspaceHierarchy] = useState<WorkspaceData[]>([]);
 
   useEffect(() => {
@@ -83,9 +83,12 @@ const WorkspaceDetail = () => {
 
   return (
     <>
-      <ContentHeader
-        title={isLoading ? <Skeleton width="170px" /> : selectedWorkspace?.name}
-        subtitle={isLoading ? <Skeleton width="250px" /> : selectedWorkspace?.description}
+      <PageHeader
+        data-codemods
+        title=""
+        subtitle=""
+        // title={isLoading ? <Skeleton width="170px" /> : selectedWorkspace?.name}
+        // subtitle={isLoading ? <Skeleton width="250px" /> : selectedWorkspace?.description}
         actionMenu={<WorkspaceActions currentWorkspace={selectedWorkspace} hasAssets={hasAssets} />}
       >
         <div className="pf-v5-u-mt-md">
@@ -102,7 +105,7 @@ const WorkspaceDetail = () => {
             ))}
           </Breadcrumb>
         </div>
-      </ContentHeader>
+      </PageHeader>
       <Divider />
       <Tabs
         className="pf-v5-u-background-color-100"
@@ -128,7 +131,7 @@ const WorkspaceDetail = () => {
           ouiaId="assets-tab-button"
         />
       </Tabs>
-      <PageSection>{activeTabString === 'assets' ? <AssetsCards /> : enableRoles && <RoleAssignmentsTable />}</PageSection>
+      <PageSection hasBodyWrapper={false}>{activeTabString === 'assets' ? <AssetsCards /> : enableRoles && <RoleAssignmentsTable />}</PageSection>
     </>
   );
 };

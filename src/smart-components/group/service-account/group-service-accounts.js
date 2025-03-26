@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, useRef, Suspense, Fragment, use
 import { useDispatch, useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
 import { Outlet, createSearchParams, useParams } from 'react-router-dom';
-import { Alert, Bullseye, Button, Card, CardBody, Text, TextContent, TextVariants } from '@patternfly/react-core';
+import { Alert, Bullseye, Button, Card, CardBody, Content, ContentVariants } from '@patternfly/react-core';
 import Section from '@redhat-cloud-services/frontend-components/Section';
 import DateFormat from '@redhat-cloud-services/frontend-components/DateFormat';
 import { defaultSettings } from '../../../helpers/shared/pagination';
@@ -136,11 +136,11 @@ const GroupServiceAccounts = () => {
           <Card>
             <CardBody>
               <Bullseye>
-                <TextContent>
-                  <Text component={TextVariants.h1}>
+                <Content>
+                  <Content component={ContentVariants.h1}>
                     {intl.formatMessage(isPlatformDefault ? messages.noAccountsInDefaultAccess : messages.noAccountsInDefaultAdminAccess)}
-                  </Text>
-                </TextContent>
+                  </Content>
+                </Content>
               </Bullseye>
             </CardBody>
           </Card>

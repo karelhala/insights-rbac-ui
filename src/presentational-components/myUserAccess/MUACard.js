@@ -44,7 +44,6 @@ const MUACard = ({ header, entitlements, isDisabled }) => {
                   <Card
                     ouiaId={`${data.title}-card`}
                     key={data.title}
-                    isFlat={isDisabled || key !== bundleParam}
                     isSelectable={!isDisabled}
                     isSelected={!isDisabled && key === bundleParam}
                     className={classNames({

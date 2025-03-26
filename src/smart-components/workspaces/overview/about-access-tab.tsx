@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentHeader, ServiceCard } from '@patternfly/react-component-groups';
+import { PageHeader, ServiceCard } from '@patternfly/react-component-groups';
 import {
   Button,
   ButtonVariant,
@@ -15,8 +15,8 @@ import {
   List,
   ListItem,
   PageSection,
-  Text,
-  TextVariants,
+  Content,
+  ContentVariants,
   Title,
 } from '@patternfly/react-core';
 import messages from '../../../Messages';
@@ -40,7 +40,8 @@ const WorkspacesOverview = () => {
 
   return (
     <>
-      <ContentHeader
+      <PageHeader
+        data-codemods
         title={intl.formatMessage(messages.workspacesOverviewTitle)}
         // to do - add url for viewing assets once available
         subtitle={intl.formatMessage(messages.workspacesOverviewSubtitle)}
@@ -51,11 +52,11 @@ const WorkspacesOverview = () => {
           // to do - add learn more url once available
         }}
       />
-      <PageSection>
+      <PageSection hasBodyWrapper={false}>
         <Title headingLevel="h2" className="pf-v5-u-mb-md" data-ouia-component-id="header-title">
           {intl.formatMessage(messages.workspacesOverviewTitle)}
         </Title>
-        <Text component={TextVariants.p}>{intl.formatMessage(messages.workspacesPageSubtitle)} </Text>
+        <Content component={ContentVariants.p}>{intl.formatMessage(messages.workspacesPageSubtitle)} </Content>
         <br></br>
         <ExpandableSection
           toggleText="Show me how my assets and permissions will be organized into workspaces"

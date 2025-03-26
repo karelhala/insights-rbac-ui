@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
-import { Dropdown, DropdownItem, DropdownToggle } from '@patternfly/react-core/deprecated';
 
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
-import { Text, Spinner } from '@patternfly/react-core';
+import { Content, Spinner, Dropdown, DropdownItem, MenuToggle } from '@patternfly/react-core';
 import StatusLabel from '../../presentational-components/myUserAccess/StatusLabel';
 import PermissionsContext from '../../utilities/permissions-context';
 import { bundleData } from '../../presentational-components/myUserAccess/bundles';
@@ -47,17 +46,17 @@ const MyUserAccess = () => {
               </React.Fragment>
             }
           />
-          <Text component="p" className="rbac-p-myUserAccess--subtitle">
+          <Content component="p" className="rbac-p-myUserAccess--subtitle">
             {intl.formatMessage(messages.selectAppsToViewPermissions)}
-          </Text>
+          </Content>
           {entitledBundles && (
             <div className="rbac-p-myUserAccess--dropdown sticky">
               <Dropdown
                 ouiaId="mua-bundle-dropdown"
                 toggle={
-                  <DropdownToggle onToggle={() => setDropdownOpen(!isDropdownOpen)} id="mua-bundle-dropdown">
+                  <MenuToggle onToggle={() => setDropdownOpen(!isDropdownOpen)} id="mua-bundle-dropdown">
                     {bundleParam ? bundleParam : intl.formatMessage(messages.chooseSubscriptionEllipsis)}
-                  </DropdownToggle>
+                  </MenuToggle>
                 }
                 dropdownItems={bundleData.map((data) => (
                   <NavLink key={data.entitlement} to={{ pathname: '', search: `bundle=${data.entitlement}` }}>

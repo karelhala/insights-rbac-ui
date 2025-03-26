@@ -5,16 +5,15 @@ import {
   Button,
   ButtonVariant,
   Checkbox,
-  Modal,
-  ModalVariant,
   Stack,
   StackItem,
   Switch,
-  Text,
-  TextVariants,
+  Content,
+  ContentVariants,
   Title,
   TitleSizes,
 } from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { useIntl } from 'react-intl';
 import Messages from '../../Messages';
 import './enable-workspaces-alert.scss';
@@ -40,9 +39,9 @@ const EnableWorkspacesAlert: React.FunctionComponent = () => {
       <Title ouiaId="enable-workspaces-modal-header" headingLevel="h1" size={TitleSizes['2xl']}>
         {intl.formatMessage(Messages.enableWorkspacesWizardTitle)}
       </Title>
-      <Text component={TextVariants.p} ouiaId="enable-workspaces-modal-description">
+      <Content component={ContentVariants.p} ouiaId="enable-workspaces-modal-description">
         {intl.formatMessage(Messages.enableWorkspacesWizardDesc)}
-      </Text>
+      </Content>
     </React.Fragment>
   );
 

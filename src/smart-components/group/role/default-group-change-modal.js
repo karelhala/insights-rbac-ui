@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, TextContent } from '@patternfly/react-core';
+import { Content } from '@patternfly/react-core';
 import WarningModal from '@patternfly/react-component-groups/dist/dynamic/WarningModal';
 import { FormattedMessage, useIntl } from 'react-intl';
 import messages from '../../../Messages';
@@ -17,16 +17,16 @@ const DefaultGroupChange = ({ isOpen, onClose, onSubmit }) => {
       onClose={onClose}
       onConfirm={onSubmit}
     >
-      <TextContent>
-        <Text>
+      <Content>
+        <Content component="p">
           <FormattedMessage
             {...messages.defaultAccessGroupEditWarning}
             values={{
               b: (text) => <b>{text}</b>,
             }}
           />
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
     </WarningModal>
   );
 };

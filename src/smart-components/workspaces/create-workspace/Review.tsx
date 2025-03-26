@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFlag } from '@unleash/proxy-client-react';
 import useFormApi from '@data-driven-forms/react-form-renderer/use-form-api';
-import { Title, DescriptionListGroup, DescriptionList, DescriptionListTerm, DescriptionListDescription, Text } from '@patternfly/react-core';
+import { Title, DescriptionListGroup, DescriptionList, DescriptionListTerm, DescriptionListDescription, Content } from '@patternfly/react-core';
 import { useIntl } from 'react-intl';
 import { BUNDLES, WORKSPACE_ACCOUNT, WORKSPACE_DESCRIPTION, WORKSPACE_FEATURES, WORKSPACE_NAME, WORKSPACE_PARENT } from './schema';
 import messages from '../../../Messages';
@@ -17,7 +17,9 @@ const ReviewStep = () => {
       <Title headingLevel="h1" size="xl" className="pf-v5-u-mb-lg">
         {intl.formatMessage(messages.reviewNewWorkspace)}
       </Title>
-      <Text className="pf-v5-u-mb-xl">{intl.formatMessage(messages.reviewWorkspaceDescription)}</Text>
+      <Content component="p" className="pf-v5-u-mb-xl">
+        {intl.formatMessage(messages.reviewWorkspaceDescription)}
+      </Content>
       <DescriptionList isHorizontal termWidth="25%">
         <DescriptionListGroup>
           <DescriptionListTerm>{intl.formatMessage(messages.workspaceName)}</DescriptionListTerm>
@@ -41,9 +43,13 @@ const ReviewStep = () => {
               <DescriptionListTerm>{intl.formatMessage(messages.availableFeatures)}</DescriptionListTerm>
               <DescriptionListDescription>
                 {values[WORKSPACE_FEATURES]?.length > 0 ? (
-                  values[WORKSPACE_FEATURES].map((item: string) => <Text key={item}>{BUNDLES.find((bundle) => bundle.value === item)?.label}</Text>)
+                  values[WORKSPACE_FEATURES].map((item: string) => (
+                    <Content component="p" key={item}>
+                      {BUNDLES.find((bundle) => bundle.value === item)?.label}
+                    </Content>
+                  ))
                 ) : (
-                  <Text>-</Text>
+                  <Content component="p">-</Content>
                 )}
               </DescriptionListDescription>
             </DescriptionListGroup>
@@ -55,7 +61,7 @@ const ReviewStep = () => {
             <DescriptionListDescription>
               {values[WORKSPACE_FEATURES].map((item: string) => {
                 const bundle = BUNDLES.find((bundle) => bundle.value === item);
-                return <Text key={item}>{`${bundle?.label}: ${values[`ear-mark-${bundle?.value}-cores`] ?? 0} Cores`}</Text>;
+                return <Content component="p" key={item}>{`${bundle?.label}: ${values[`ear-mark-${bundle?.value}-cores`] ?? 0} Cores`}</Content>;
               })}
             </DescriptionListDescription>
           </DescriptionListGroup>

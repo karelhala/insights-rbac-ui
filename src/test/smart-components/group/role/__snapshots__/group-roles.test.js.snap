@@ -9,20 +9,20 @@ exports[`<GroupRoles /> should render empty correctly 1`] = `
      
     <div>
       <div
-        class="pf-v5-c-empty-state pf-m-sm"
+        class="pf-v6-c-empty-state pf-m-sm"
       >
         <div
-          class="pf-v5-c-empty-state__content"
+          class="pf-v6-c-empty-state__content"
         >
           <div
-            class="pf-v5-c-empty-state__header"
+            class="pf-v6-c-empty-state__header"
           >
             <div
-              class="pf-v5-c-empty-state__icon"
+              class="pf-v6-c-empty-state__icon"
             >
               <svg
                 aria-hidden="true"
-                class="pf-v5-svg"
+                class="pf-v6-svg"
                 fill="currentColor"
                 height="1em"
                 role="img"
@@ -35,17 +35,17 @@ exports[`<GroupRoles /> should render empty correctly 1`] = `
               </svg>
             </div>
             <div
-              class="pf-v5-c-empty-state__title"
+              class="pf-v6-c-empty-state__title"
             >
               <h4
-                class="pf-v5-c-empty-state__title-text"
+                class="pf-v6-c-empty-state__title-text"
               >
                 There are no roles in this group
               </h4>
             </div>
           </div>
           <div
-            class="pf-v5-c-empty-state__body pf-v5-u-mb-md"
+            class="pf-v6-c-empty-state__body pf-v5-u-mb-md"
           >
             Add a role to configure user access.
              
@@ -54,7 +54,7 @@ exports[`<GroupRoles /> should render empty correctly 1`] = `
             <br />
           </div>
           <div
-            class="pf-v5-c-empty-state__footer"
+            class="pf-v6-c-empty-state__footer"
           />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { EmptyState, EmptyStateBody, EmptyStateHeader, EmptyStateIcon, Pagination } from '@patternfly/react-core';
+import { EmptyState, EmptyStateBody, Pagination } from '@patternfly/react-core';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { DataView, DataViewState, DataViewTable, DataViewToolbar, useDataViewPagination, useDataViewSelection } from '@patternfly/react-data-view';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,8 +13,7 @@ import { SearchIcon } from '@patternfly/react-icons';
 
 const EmptyTable: React.FunctionComponent<{ titleText: string }> = ({ titleText }) => {
   return (
-    <EmptyState>
-      <EmptyStateHeader titleText={titleText} headingLevel="h4" icon={<EmptyStateIcon icon={SearchIcon} />} />
+    <EmptyState headingLevel="h4" icon={SearchIcon} titleText={titleText}>
       <EmptyStateBody>
         <FormattedMessage
           {...Messages['usersEmptyStateSubtitle']}
